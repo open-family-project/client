@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  npm:install:
+    desc: Permet d'installer les librairies
+    cmds:
+      - task: :docker:exec
+        vars:
+          CLI_ARGS: client npm install {{.CLI_ARGS}}

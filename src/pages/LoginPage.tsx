@@ -1,10 +1,9 @@
+import LoginForm from "@/features/auth/components/LoginForm.tsx";
+
 export default function LoginPage() {
     return (
-        <main>
-            <h1>Bienvenue sur Open Family</h1>
-            <p>
-                Login
-            </p>
-        </main>
+        <div className="flex justify-center mt-16">
+            <LoginForm />
+        </div>
     );
 }

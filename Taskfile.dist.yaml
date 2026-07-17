@@ -1,9 +1,16 @@
 version: '3'
 
 tasks:
-  npm:install:
-    desc: Permet d'installer les librairies
+  run:
+    desc: Permet d'executer une commande dans le container client
     cmds:
       - task: :docker:exec
         vars:
-          CLI_ARGS: client npm install {{.CLI_ARGS}}
+          CLI_ARGS: client {{.CLI_ARGS}}
+
+  npm:install:
+    desc: Permet d'installer les librairies
+    cmds:
+      - task: run
+        vars:
+          CLI_ARGS: npm install {{.CLI_ARGS}}

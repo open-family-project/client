@@ -22,11 +22,10 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@pages/*": ["src/pages/*"],
-      "@features/*": ["src/features/*"],
-      "@shared/*": ["src/shared/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"]

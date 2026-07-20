@@ -21,7 +21,7 @@ export default function Topbar() {
                 </NavLink>
 
                 <NavLink
-                    to="/connexion"
+                    to="/login"
                     className={({ isActive }) => isActive ? "btn btn-primary" : "btn btn-ghost"}
                 >
                     Connexion

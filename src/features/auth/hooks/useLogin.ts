@@ -1,7 +1,7 @@
 import { login as loginApi } from "@/features/auth/api/auth.api";
 import type { LoginRequest } from "@/features/auth/models/LoginRequest";
 import { useSession } from "@/app/session/useSession";
-import type {LoginResponse} from "@/features/auth/models/LoginResponse.ts";
+import type {LoginResponse} from "@/features/auth/models/LoginResponse";
 
 export function useLogin() {
 

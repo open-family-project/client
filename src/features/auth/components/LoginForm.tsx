@@ -4,7 +4,9 @@ import CardTitle from "@/shared/ui/Card/CardTitle";
 import {useForm} from "react-hook-form";
 import type {LoginRequest} from "@/features/auth/models/LoginRequest";
 import {useLogin} from "@/features/auth/hooks/useLogin";
-import FormErrors from "@/shared/ui/Form/FormErrors.tsx";
+import FormErrors from "@/shared/ui/Form/FormErrors";
+import {Navigate} from "react-router-dom";
+import {useSession} from "@/app/session/useSession";
 
 export default function LoginForm() {
 
@@ -17,6 +19,8 @@ export default function LoginForm() {
 
     const { authenticate } = useLogin();
 
+    const { authenticated } = useSession();
+
     const onSubmit = async (data: LoginRequest) => {
         try {
             await authenticate(data);
@@ -28,6 +32,10 @@ export default function LoginForm() {
             }
         }
     };
+
+    if (authenticated) {
+        return <Navigate to="/dashboard" replace />;
+    }
 
     return (
         <Card className="w-full max-w-md">

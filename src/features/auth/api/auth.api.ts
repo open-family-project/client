@@ -1,5 +1,5 @@
 import type { LoginRequest } from "@/features/auth/models/LoginRequest";
-import type {LoginResponse} from "@/features/auth/models/LoginResponse.ts";
+import type {LoginResponse} from "@/features/auth/models/LoginResponse";
 
 export async function login(request: LoginRequest): Promise<LoginResponse> {
     await new Promise(resolve => setTimeout(resolve, 1000));

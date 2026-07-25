@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import type { Session } from "@/app/session/models/Session";
 
 interface SessionStore {
@@ -10,19 +11,25 @@ interface SessionStore {
     logout(): void;
 }
 
-export const useSessionStore = create<SessionStore>((set) => ({
-
-    session: null,
-
-    login(session) {
-        set({
-            session,
-        });
-    },
-
-    logout() {
-        set({
+export const useSessionStore = create<SessionStore>()(
+    persist(
+        (set) => ({
             session: null,
-        });
-    },
-}));
+
+            login(session) {
+                set({
+                    session,
+                });
+            },
+
+            logout() {
+                set({
+                    session: null,
+                });
+            },
+        }),
+        {
+            name: 'session-storage',
+        }
+    )
+);

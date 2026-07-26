@@ -1,7 +1,7 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, NavLink } from "react-router-dom";
 
 import { useSession } from "@/app/session/useSession";
-import Topbar from "@/shared/ui/Navbar/Topbar";
+import Topbar, { RightArea } from "@/shared/ui/Navbar/Topbar";
 
 export default function UnauthenticatedLayout() {
 
@@ -13,7 +13,26 @@ export default function UnauthenticatedLayout() {
 
     return (
         <>
-            <Topbar />
+            <Topbar>
+                <RightArea>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            isActive ? "btn btn-primary" : "btn btn-ghost"
+                        }
+                    >
+                        Accueil
+                    </NavLink>
+                    <NavLink
+                        to="/login"
+                        className={({ isActive }) =>
+                            isActive ? "btn btn-primary" : "btn btn-ghost"
+                        }
+                    >
+                        Connexion
+                    </NavLink>
+                </RightArea>
+            </Topbar>
 
             <main>
                 <Outlet />
